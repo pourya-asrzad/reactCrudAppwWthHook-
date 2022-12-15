@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import { useState } from "react";
+import EditSide from "./components/edit-side/EditSide";
+import ViewUserSide from "./components/view-user-side/ViewUserSide";
+import EditUserContext from "./aut-context/AuthContext";
 function App() {
+  const [id, setId] = useState("");
+  const [name, setName] = useState("");
+  const [userName, setUserName] = useState("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <EditUserContext.Provider
+      value={{
+        setId: setId,
+        setName: setName,
+        setUserName: setUserName,
+        id: +id,
+        name: name,
+        username: userName,
+      }}
+    >
+      <div className="App">
+        <EditSide />
+        <ViewUserSide />
+      </div>
+    </EditUserContext.Provider>
   );
 }
 

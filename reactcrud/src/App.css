@@ -1,38 +1,75 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App{
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table thead tr {
+border-bottom: 1px solid black;
+  text-align: left;
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.532);
 }
 
-.App-link {
-  color: #61dafb;
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.49);
+}
+h1{
+  font-weight: 100;
+}
+.ViewUserSide{
+  margin-left:4rem ;
+ 
+}
+.tabelparent{
+  height: 35rem;
+  overflow: overlay;
+  width: 27rem;
+}
+button{
+  width: 4.5rem;
+  height: 1.75rem;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 10px;
+background-color: rgb(255, 255, 255);
+border: 1px solid gray;
+font-weight: bold;
+cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.edituser{
+  width: 5rem;
+  color: aliceblue;
+  font-weight: 500;
+  margin-right: 5px;
+  background-color: rgb(92, 178, 231);
+}
+input{
+  width: 14rem;
+  height: 1.75rem;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  font-size: .9rem;
+}
+.edituserdisabel{
+  width: 5rem;
+  color: aliceblue;
+  font-weight: 500;
+  margin-right: 5px;
+   cursor: no-drop;
+  background-color: rgba(93, 94, 96, 0.533);
 }
