@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Tr from "./Tr";
+import EditUserContext from "../../aut-context/AuthContext";
 import { usersdata } from "../../data/data";
 const ViewUserSide = () => {
-  const [userData, setUserData] = useState(usersdata);
+  const context = useContext(EditUserContext);
   function itemDeleteHandler(id) {
-    setUserData((prev) => {
+    context.setUserData((prev) => {
       return prev.filter((elemnt) => elemnt.id !== +id);
     });
   }
@@ -23,7 +24,7 @@ const ViewUserSide = () => {
             </tr>
           </thead>
           <tbody>
-            {userData.map((elemnt) => {
+            {context.userData.map((elemnt) => {
               return (
                 <Tr
                   onItemDelete={itemDeleteHandler}

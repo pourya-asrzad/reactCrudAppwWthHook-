@@ -1,7 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Input from "../input/Input";
 import EditUserContext from "../../aut-context/AuthContext";
 const EditSide = () => {
+  const [namevalue, setNamevalue] = useState("");
+  const [userNameValue, setUserNameValue] = useState("");
   const context = useContext(EditUserContext);
   function editItemSubmitHandler(e) {
     e.preventDefault();
@@ -11,7 +13,21 @@ const EditSide = () => {
     context.setName("");
     context.setUserName("");
   }
-  function editItemHandler() {}
+
+  function editItemHandler() {
+    let index = context.userData.findIndex((ele) => {
+      return ele.id == context.id;
+    });
+    context.setUserData((prev) => {
+      prev[index].name = namevalue;
+      prev[index].username = userNameValue;
+      return prev;
+    });
+    context.setId("");
+    context.setName("");
+    context.setUserName("");
+  }
+
   let editbtn =
     context.name === "" ? (
       <button disabled className="edituserdisabel">
@@ -26,10 +42,14 @@ const EditSide = () => {
     <div>
       <h1>Edit User </h1>
       <form onSubmit={editItemSubmitHandler}>
-        <Input value={context.name} name="name">
+        <Input ongetvalue={setNamevalue} value={context.name} name="name">
           Name
         </Input>
-        <Input value={context.username} name="username">
+        <Input
+          ongetvalue={setUserNameValue}
+          value={context.username}
+          name="username"
+        >
           Username
         </Input>
         <div>
