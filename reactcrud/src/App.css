@@ -73,3 +73,17 @@ input{
    cursor: no-drop;
   background-color: rgba(93, 94, 96, 0.533);
 }
+.invalidinput{
+  width: 14rem;
+  height: 1.75rem;
+  margin-bottom: 0;
+  border-radius: 5px;
+  border: 1px solid red;
+  font-size: .9rem;
+}
+.errormssege{
+  display: block;
+  font-size: 13px;
+  color: #ff0000cc;
+  padding: 2px;
+}
